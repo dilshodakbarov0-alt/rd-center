@@ -82,10 +82,11 @@ export const getTranslations = async (locale: Locale) => {
     return base;
   }
 
-  const dbDictionary = data.reduce<Record<string, string>>((acc, row) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dbDictionary = (data as any[]).reduce((acc: Record<string, string>, row: { key: string; value: string }) => {
     acc[row.key] = row.value;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 
   return {
     ...base,

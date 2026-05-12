@@ -17,7 +17,7 @@ export const Header = ({ locale, dictionary }: HeaderProps) => {
           </div>
           <div>
             <p className="text-sm text-slate-400">{dictionary["app.name"]}</p>
-            <p className="text-xs text-slate-500">Construction Materials Lab</p>
+            <p className="text-xs text-slate-500">Лаборатория строительных материалов</p>
           </div>
         </div>
         <nav className="flex items-center gap-4 text-sm text-slate-200">

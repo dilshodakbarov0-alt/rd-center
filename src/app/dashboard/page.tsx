@@ -6,18 +6,18 @@ const sampleProjects = [
   {
     id: "basalt-gyplight",
     name: "Basalt-GypLight Mix",
-    type: "ceiling",
-    zone: "Interior",
-    status: "in_progress",
-    region: "Tashkent",
+    type: "потолок",
+    zone: "Интерьер",
+    status: "В процессе",
+    region: "Ташкент",
   },
   {
     id: "panel-eco",
     name: "Panel ThermoShield",
-    type: "panel",
-    zone: "Exterior",
-    status: "draft",
-    region: "Samarkand",
+    type: "панель",
+    zone: "Экстерьер",
+    status: "Черновик",
+    region: "Самарканд",
   },
 ];
 
@@ -29,7 +29,7 @@ export default async function DashboardPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <p className="text-sm text-slate-400">{dictionary["dashboard.title"]}</p>
-          <h1 className="text-3xl font-semibold text-white">R&D Center</h1>
+          <h1 className="text-3xl font-semibold text-white">Центр R&D</h1>
         </div>
         <div className="flex gap-3">
           <button className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950">
@@ -42,9 +42,9 @@ export default async function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <StatCard title="Active projects" value="12" />
-        <StatCard title="Variants in review" value="8" />
-        <StatCard title="Blocked by QC" value="2" />
+        <StatCard title="Активные проекты" value="12" />
+        <StatCard title="Варианты на проверке" value="8" />
+        <StatCard title="Заблокированы КК" value="2" />
       </div>
 
       <div className="card">
@@ -52,25 +52,25 @@ export default async function DashboardPage() {
           <h2 className="text-lg font-semibold text-white">{dictionary["dashboard.filters"]}</h2>
           <div className="flex flex-wrap gap-3 text-sm">
             <select className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
-              <option>Type</option>
-              <option>Mix</option>
-              <option>Panel</option>
+              <option>Тип</option>
+              <option>Смесь</option>
+              <option>Панель</option>
             </select>
             <select className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
-              <option>Zone</option>
-              <option>Interior</option>
-              <option>Exterior</option>
+              <option>Зона</option>
+              <option>Интерьер</option>
+              <option>Экстерьер</option>
             </select>
             <select className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
-              <option>Status</option>
-              <option>Draft</option>
-              <option>In progress</option>
-              <option>Ready</option>
+              <option>Статус</option>
+              <option>Черновик</option>
+              <option>В процессе</option>
+              <option>Готово</option>
             </select>
             <select className="rounded-lg border border-slate-700 bg-slate-900 px-3 py-2">
-              <option>Region</option>
-              <option>Tashkent</option>
-              <option>Samarkand</option>
+              <option>Регион</option>
+              <option>Ташкент</option>
+              <option>Самарканд</option>
             </select>
           </div>
         </div>

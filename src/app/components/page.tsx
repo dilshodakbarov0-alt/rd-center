@@ -1,9 +1,9 @@
 import { getPageDictionary } from "@/lib/page-helpers";
 
 const mockComponents = [
-  { name: "Gypsum", type: "Binder", eps: false },
-  { name: "Basalt fiber", type: "Fiber", eps: false },
-  { name: "EPS beads", type: "Lightweight", eps: true },
+  { name: "Гипс", type: "Вяжущее", eps: false },
+  { name: "Базальтовое волокно", type: "Волокно", eps: false },
+  { name: "Гранулы EPS", type: "Лёгкий наполнитель", eps: true },
 ];
 
 export default async function ComponentsPage() {
@@ -16,8 +16,8 @@ export default async function ComponentsPage() {
         <table className="table">
           <thead>
             <tr>
-              <th>Component</th>
-              <th>Type</th>
+              <th>Компонент</th>
+              <th>Тип</th>
               <th>EPS</th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@ export default async function ComponentsPage() {
               <tr key={component.name}>
                 <td>{component.name}</td>
                 <td>{component.type}</td>
-                <td>{component.eps ? "Yes" : "No"}</td>
+                <td>{component.eps ? "Да" : "Нет"}</td>
               </tr>
             ))}
           </tbody>

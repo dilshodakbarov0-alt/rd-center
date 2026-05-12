@@ -1,8 +1,8 @@
 import { getPageDictionary } from "@/lib/page-helpers";
 
 const mockPrices = [
-  { region: "Tashkent", gypsum: 120, basalt: 240 },
-  { region: "Samarkand", gypsum: 110, basalt: 230 },
+  { region: "Ташкент", gypsum: 120, basalt: 240 },
+  { region: "Самарканд", gypsum: 110, basalt: 230 },
 ];
 
 export default async function PricesPage() {
@@ -15,9 +15,9 @@ export default async function PricesPage() {
         <table className="table">
           <thead>
             <tr>
-              <th>Region</th>
-              <th>Gypsum</th>
-              <th>Basalt Fiber</th>
+              <th>Регион</th>
+              <th>Гипс</th>
+              <th>Базальтовое волокно</th>
             </tr>
           </thead>
           <tbody>

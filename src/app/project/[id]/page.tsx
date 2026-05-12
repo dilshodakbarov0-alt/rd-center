@@ -28,29 +28,29 @@ const mockProject = MaterialProjectV1Schema.parse({
   variants: [
     {
       name: "Eco",
-      summary: "Low-cost gypsum mix with basalt fiber.",
+      summary: "Бюджетная гипсовая смесь с базальтовым волокном.",
       components: [
-        { name: "Gypsum", ratio: 0.62 },
-        { name: "Basalt fiber", ratio: 0.02 },
+        { name: "Гипс", ratio: 0.62 },
+        { name: "Базальтовое волокно", ratio: 0.02 },
         { name: "RDP", ratio: 0.009 },
       ],
     },
     {
       name: "Standard",
-      summary: "Balanced strength and workability.",
+      summary: "Сбалансированная прочность и удобоукладываемость.",
       components: [
-        { name: "Gypsum", ratio: 0.58 },
-        { name: "Basalt fiber", ratio: 0.02 },
-        { name: "Limestone", ratio: 0.15 },
+        { name: "Гипс", ratio: 0.58 },
+        { name: "Базальтовое волокно", ratio: 0.02 },
+        { name: "Известняк", ratio: 0.15 },
       ],
     },
     {
       name: "Pro",
-      summary: "High performance ceiling finish.",
+      summary: "Высокоэффективная потолочная отделка.",
       components: [
-        { name: "Gypsum", ratio: 0.52 },
-        { name: "Basalt fiber", ratio: 0.03 },
-        { name: "Additives pack", ratio: 0.05 },
+        { name: "Гипс", ratio: 0.52 },
+        { name: "Базальтовое волокно", ratio: 0.03 },
+        { name: "Пакет добавок", ratio: 0.05 },
       ],
     },
   ],
@@ -82,7 +82,7 @@ export default async function ProjectPage() {
         <div>
           <h1 className="text-3xl font-semibold text-white">{mockProject.name}</h1>
           <p className="text-sm text-slate-400">
-            {mockProject.type} · {mockProject.zone} · {mockProject.region}
+            потолок · Интерьер · Ташкент
           </p>
         </div>
         <div className="flex gap-3">
@@ -99,7 +99,7 @@ export default async function ProjectPage() {
 
       {qualityIssues.length > 0 && (
         <div className="card border border-amber-500/40 bg-amber-500/10">
-          <h2 className="text-sm font-semibold text-amber-200">Quality & Safety</h2>
+          <h2 className="text-sm font-semibold text-amber-200">Качество и безопасность</h2>
           <ul className="mt-2 space-y-2 text-sm text-amber-100">
             {qualityIssues.map((issue, index) => (
               <li key={index}>
@@ -112,37 +112,37 @@ export default async function ProjectPage() {
 
       <div id="overview" className="grid gap-4 md:grid-cols-2">
         <div className="card">
-          <h2 className="text-lg font-semibold text-white">Overview</h2>
+          <h2 className="text-lg font-semibold text-white">Обзор</h2>
           <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            <li>Target density: {mockProject.targets.density_kg_m3} kg/m³</li>
-            <li>Target pull-off: {mockProject.targets.strength_mpa} MPa</li>
-            <li>Status: {mockProject.status}</li>
+            <li>Целевая плотность: {mockProject.targets.density_kg_m3} кг/м³</li>
+            <li>Целевое сцепление: {mockProject.targets.strength_mpa} МПа</li>
+            <li>Статус: В процессе</li>
           </ul>
         </div>
         <div className="card">
-          <h2 className="text-lg font-semibold text-white">Constraints</h2>
+          <h2 className="text-lg font-semibold text-white">Ограничения</h2>
           <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            <li>EPS policy: {mockProject.constraints.eps_policy}</li>
-            <li>Min pull-off: {mockProject.constraints.min_pull_off_mpa} MPa</li>
+            <li>Политика EPS: Запрещено</li>
+            <li>Мин. сцепление: {mockProject.constraints.min_pull_off_mpa} МПа</li>
           </ul>
         </div>
       </div>
 
       <div id="targets" className="card">
-        <h2 className="text-lg font-semibold text-white">Targets & Constraints</h2>
+        <h2 className="text-lg font-semibold text-white">Цели и ограничения</h2>
         <table className="table mt-4">
           <thead>
             <tr>
-              <th>Metric</th>
-              <th>Value</th>
-              <th>Rule</th>
+              <th>Показатель</th>
+              <th>Значение</th>
+              <th>Правило</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>W/G</td>
+              <td>В/Г</td>
               <td>{mockProject.recipe.w_g}</td>
-              <td>0.34 - 0.42 (ceiling)</td>
+              <td>0.34 – 0.42 (потолок)</td>
             </tr>
             <tr>
               <td>RDP%</td>
@@ -150,12 +150,12 @@ export default async function ProjectPage() {
               <td>&gt;= 1.0%</td>
             </tr>
             <tr>
-              <td>Rheology%</td>
+              <td>Реология%</td>
               <td>{mockProject.recipe.rheology_pct}</td>
               <td>&gt;= 0.10%</td>
             </tr>
             <tr>
-              <td>WaterRetention%</td>
+              <td>Водоудержание%</td>
               <td>{mockProject.recipe.water_retention_pct}</td>
               <td>&gt;= 0.06%</td>
             </tr>
@@ -164,12 +164,12 @@ export default async function ProjectPage() {
       </div>
 
       <div id="recipe" className="card">
-        <h2 className="text-lg font-semibold text-white">Recipe</h2>
+        <h2 className="text-lg font-semibold text-white">Рецептура</h2>
         <table className="table mt-4">
           <thead>
             <tr>
-              <th>Component</th>
-              <th>Ratio</th>
+              <th>Компонент</th>
+              <th>Доля</th>
             </tr>
           </thead>
           <tbody>
@@ -201,20 +201,20 @@ export default async function ProjectPage() {
 
       <div id="doe" className="card">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-white">DOE / Lab</h2>
+          <h2 className="text-lg font-semibold text-white">DOE / Лаб</h2>
           <button className="rounded-lg border border-slate-700 px-4 py-2 text-xs font-semibold text-slate-200">
-            Generate DOE (12 runs)
+            Сгенерировать DOE (12 опытов)
           </button>
         </div>
         <table className="table mt-4">
           <thead>
             <tr>
-              <th>Run</th>
-              <th>W/G</th>
+              <th>Опыт</th>
+              <th>В/Г</th>
               <th>RDP%</th>
-              <th>Rheology%</th>
-              <th>WaterRetention%</th>
-              <th>BasaltFiber%</th>
+              <th>Реология%</th>
+              <th>Водоудержание%</th>
+              <th>Базальт%</th>
             </tr>
           </thead>
           <tbody>
@@ -233,50 +233,50 @@ export default async function ProjectPage() {
       </div>
 
       <div id="qc" className="card">
-        <h2 className="text-lg font-semibold text-white">QC Plan</h2>
+        <h2 className="text-lg font-semibold text-white">План контроля качества</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-300">
-          <li>Incoming gypsum moisture check (≤ 0.5%).</li>
-          <li>Batch density verification.</li>
-          <li>Adhesion pull-off ≥ {mockProject.constraints.min_pull_off_mpa} MPa.</li>
+          <li>Проверка влажности гипса при поступлении (≤ 0,5%).</li>
+          <li>Контроль плотности партии.</li>
+          <li>Сцепление (pull-off) ≥ {mockProject.constraints.min_pull_off_mpa} МПа.</li>
         </ul>
       </div>
 
       <div id="sop" className="card">
-        <h2 className="text-lg font-semibold text-white">SOP</h2>
+        <h2 className="text-lg font-semibold text-white">СОП</h2>
         <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-slate-300">
-          <li>Prepare dry blend in mixer for 90 seconds.</li>
-          <li>Add water gradually until target rheology achieved.</li>
-          <li>Apply 8-10 mm layer and finish within 25 minutes.</li>
+          <li>Подготовить сухую смесь в миксере в течение 90 секунд.</li>
+          <li>Постепенно добавлять воду до достижения целевой реологии.</li>
+          <li>Нанести слой 8–10 мм и завершить обработку в течение 25 минут.</li>
         </ol>
       </div>
 
       <div id="economics" className="card">
-        <h2 className="text-lg font-semibold text-white">Economics</h2>
+        <h2 className="text-lg font-semibold text-white">Экономика</h2>
         <div className="mt-4 flex flex-wrap gap-6 text-sm text-slate-300">
           <div>
-            <p className="text-xs uppercase text-slate-500">Cost per ton</p>
+            <p className="text-xs uppercase text-slate-500">Стоимость за тонну</p>
             <p className="text-lg text-white">${mockProject.economics.cost_per_ton}</p>
           </div>
           <div>
-            <p className="text-xs uppercase text-slate-500">Margin</p>
+            <p className="text-xs uppercase text-slate-500">Маржа</p>
             <p className="text-lg text-white">{mockProject.economics.margin_pct}%</p>
           </div>
         </div>
       </div>
 
       <div id="documents" className="card">
-        <h2 className="text-lg font-semibold text-white">Documents</h2>
+        <h2 className="text-lg font-semibold text-white">Документы</h2>
         <ul className="mt-4 space-y-2 text-sm text-slate-300">
-          <li>SOP Export (PDF)</li>
-          <li>QC Plan Export (PDF)</li>
-          <li>Passport Export (PDF)</li>
+          <li>Экспорт СОП (PDF)</li>
+          <li>Экспорт плана КК (PDF)</li>
+          <li>Экспорт паспорта (PDF)</li>
         </ul>
       </div>
 
       <div id="images" className="card">
-        <h2 className="text-lg font-semibold text-white">Images</h2>
+        <h2 className="text-lg font-semibold text-white">Изображения</h2>
         <p className="mt-2 text-sm text-slate-400">
-          Generate application scene, cross section, texture tile for each variant.
+          Сгенерировать сцену применения, поперечный разрез и текстуру для каждого варианта.
         </p>
       </div>
     </section>

@@ -13,16 +13,16 @@ export default async function LoginPage() {
       <form className="space-y-4">
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Эл. почта"
           className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm"
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Пароль"
           className="w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm"
         />
         <button className="w-full rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-slate-950">
-          Sign in
+          Войти
         </button>
       </form>
     </section>

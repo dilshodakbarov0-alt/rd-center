@@ -1,9 +1,9 @@
 import { getPageDictionary } from "@/lib/page-helpers";
 
 const templates = [
-  { name: "SOP Template", description: "Operational steps and safety checklist." },
-  { name: "QC Plan Template", description: "Quality checkpoints and acceptance." },
-  { name: "Passport Template", description: "Product passport with specs." },
+  { name: "Шаблон СОП", description: "Операционные шаги и контрольный список безопасности." },
+  { name: "Шаблон плана КК", description: "Контрольные точки качества и приёмка." },
+  { name: "Шаблон паспорта", description: "Паспорт продукта с техническими характеристиками." },
 ];
 
 export default async function TemplatesPage() {

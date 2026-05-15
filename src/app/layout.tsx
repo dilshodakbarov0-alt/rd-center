@@ -5,8 +5,8 @@ import { Header } from "@/components/Header";
 import { getTranslations, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "Bolajon Rivoj — Nutq va Rivoj",
-  description: "Адаптивная ИИ-платформа для детей с РАС, ЗПРР и ЗРР. Речевые упражнения, карточки и прогресс-трекинг.",
+  title: "Bolajon AI Rivoj",
+  description: "Адаптивная ИИ-платформа для детей с РАС, ЗПРР и ЗРР. Речевые упражнения, карточки, AI-уроки и прогресс-трекинг.",
 };
 
 const getLocale = (): Locale => {
@@ -27,7 +27,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <Header locale={locale} dictionary={dictionary} />
-        <main className="mx-auto max-w-6xl space-y-8 px-6 py-8">{children}</main>
+        <main className="mx-auto max-w-7xl space-y-8 px-6 py-8">{children}</main>
       </body>
     </html>
   );

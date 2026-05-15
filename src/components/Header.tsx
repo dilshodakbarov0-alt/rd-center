@@ -1,56 +1,50 @@
-import Link from "next/link";
-import { Brain } from "lucide-react";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import type { Locale } from "@/lib/i18n";
+import Link from 'next/link';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { RoleNav } from '@/components/RoleNav';
 
-type HeaderProps = {
-  locale: Locale;
-  dictionary: Record<string, string>;
+const ROLE_COLORS = {
+  parent: 'bg-blue-500/20 text-blue-300',
+  specialist: 'bg-green-500/20 text-green-300',
+  methodologist: 'bg-purple-500/20 text-purple-300',
+  admin: 'bg-red-500/20 text-red-300',
 };
+const ROLE_LABELS_RU = { parent: 'Родитель', specialist: 'Специалист', methodologist: 'Методист', admin: 'Администратор' };
 
-export const Header = ({ locale, dictionary }: HeaderProps) => {
+export function Header({ locale, dictionary: _dictionary }: { locale: string; dictionary: Record<string, string> }) {
+  const role = 'parent' as const;
   return (
-    <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <Link href="/dashboard" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
-            <Brain size={22} />
+    <header className="sticky top-0 z-40 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center gap-4 px-6 py-3">
+        <Link href="/dashboard" className="flex items-center gap-2.5 shrink-0">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white text-lg font-bold shadow-lg shadow-emerald-900/30">
+            ✦
           </div>
           <div>
-            <p className="text-sm font-semibold text-emerald-200">{dictionary["app.name"]}</p>
-            <p className="text-xs text-slate-500">{dictionary["app.subtitle"]}</p>
+            <p className="text-sm font-bold text-white leading-none">Bolajon</p>
+            <p className="text-xs text-emerald-400 leading-none">AI Rivoj</p>
           </div>
         </Link>
-        <nav className="flex items-center gap-4 text-sm text-slate-300">
-          <Link className="hover:text-emerald-200 transition-colors" href="/dashboard">
-            {dictionary["nav.dashboard"]}
-          </Link>
-          <Link className="hover:text-emerald-200 transition-colors" href="/cards">
-            {dictionary["nav.cards"]}
-          </Link>
-          <Link className="hover:text-emerald-200 transition-colors" href="/sessions">
-            {dictionary["nav.sessions"]}
-          </Link>
-          <Link className="hover:text-emerald-200 transition-colors" href="/progress">
-            {dictionary["nav.progress"]}
-          </Link>
-          <Link className="hover:text-emerald-200 transition-colors" href="/specialist">
-            {dictionary["nav.specialist"]}
-          </Link>
-          <Link className="hover:text-emerald-200 transition-colors" href="/emotions">
-            {dictionary["nav.emotions"] ?? "Эмоции"}
-          </Link>
-        </nav>
-        <div className="flex items-center gap-3">
-          <LanguageSwitcher initialLocale={locale} />
-          <Link
-            href="/child-mode"
-            className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-200 hover:bg-emerald-500/20 transition-colors"
-          >
-            {dictionary["nav.child_mode"]}
+
+        <span className={`hidden sm:inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${ROLE_COLORS[role]}`}>
+          {ROLE_LABELS_RU[role]}
+        </span>
+
+        <div className="flex-1 overflow-x-auto">
+          <RoleNav role={role} />
+        </div>
+
+        <div className="flex shrink-0 items-center gap-2">
+          <LanguageSwitcher initialLocale={locale as 'ru' | 'uz'} />
+          {role === 'parent' && (
+            <button className="flex items-center gap-1 rounded-lg border border-slate-700 px-3 py-1.5 text-xs text-slate-300 hover:border-emerald-500/40">
+              Акмал ▾
+            </button>
+          )}
+          <Link href="/login" className="rounded-lg border border-slate-700 px-3 py-1.5 text-xs text-slate-400 hover:border-slate-500">
+            Выйти
           </Link>
         </div>
       </div>
     </header>
   );
-};
+}

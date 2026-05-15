@@ -11,107 +11,153 @@ type FlashCardProps = {
 };
 
 const CATEGORY_BORDER: Record<string, string> = {
-  person: 'border-blue-400',
-  object: 'border-green-400',
-  action: 'border-orange-400',
+  person:  'border-blue-400',
+  object:  'border-green-400',
+  action:  'border-orange-400',
   emotion: 'border-yellow-400',
-  place: 'border-purple-400',
+  place:   'border-purple-400',
 };
 
 const CATEGORY_ICON_BG: Record<string, string> = {
-  person: 'bg-blue-100 text-blue-500',
-  object: 'bg-green-100 text-green-500',
-  action: 'bg-orange-100 text-orange-500',
-  emotion: 'bg-yellow-100 text-yellow-500',
-  place: 'bg-purple-100 text-purple-500',
+  person:  'bg-blue-50 text-blue-400',
+  object:  'bg-green-50 text-green-500',
+  action:  'bg-orange-50 text-orange-500',
+  emotion: 'bg-yellow-50 text-yellow-500',
+  place:   'bg-purple-50 text-purple-500',
 };
 
 const CATEGORY_LABEL_COLOR: Record<string, string> = {
-  person: 'text-blue-600',
-  object: 'text-green-600',
-  action: 'text-orange-600',
+  person:  'text-blue-600',
+  object:  'text-green-600',
+  action:  'text-orange-600',
   emotion: 'text-yellow-600',
-  place: 'text-purple-600',
+  place:   'text-purple-600',
 };
 
 const SIZE_CONFIG = {
   sm: {
-    card: 'w-[120px]',
-    image: 'h-[90px]',
-    icon: 'h-12 w-12 text-2xl',
-    label: 'text-sm',
-    sub: 'text-xs',
+    card:    'w-[120px]',
+    image:   'h-[90px]',
+    icon:    'h-12 w-12',
+    label:   'text-sm',
+    sub:     'text-[11px]',
     padding: 'p-2',
-    border: 'border-3',
+    border:  'border-[3px]',
     rounded: 'rounded-xl',
+    imgRounded: 'rounded-lg',
   },
   md: {
-    card: 'w-[160px]',
-    image: 'h-[120px]',
-    icon: 'h-16 w-16 text-3xl',
-    label: 'text-base',
-    sub: 'text-xs',
+    card:    'w-[160px]',
+    image:   'h-[120px]',
+    icon:    'h-16 w-16',
+    label:   'text-base',
+    sub:     'text-xs',
     padding: 'p-3',
-    border: 'border-4',
+    border:  'border-4',
     rounded: 'rounded-2xl',
+    imgRounded: 'rounded-xl',
   },
   lg: {
-    card: 'w-[220px]',
-    image: 'h-[160px]',
-    icon: 'h-24 w-24 text-5xl',
-    label: 'text-xl',
-    sub: 'text-sm',
+    card:    'w-[220px]',
+    image:   'h-[160px]',
+    icon:    'h-24 w-24',
+    label:   'text-xl',
+    sub:     'text-sm',
     padding: 'p-4',
-    border: 'border-4',
+    border:  'border-4',
     rounded: 'rounded-3xl',
+    imgRounded: 'rounded-2xl',
   },
 };
 
-// Simple SVG placeholder icon per category
-const CategoryIcon = ({ category, className }: { category: string; className: string }) => {
-  if (category === 'person') {
-    return (
-      <svg viewBox="0 0 64 64" fill="none" className={className}>
-        <circle cx="32" cy="20" r="12" fill="currentColor" opacity="0.8" />
-        <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" fill="currentColor" opacity="0.6" />
-      </svg>
-    );
-  }
-  if (category === 'object') {
-    return (
-      <svg viewBox="0 0 64 64" fill="none" className={className}>
-        <rect x="12" y="20" width="40" height="30" rx="4" fill="currentColor" opacity="0.8" />
-        <rect x="22" y="12" width="20" height="12" rx="3" fill="currentColor" opacity="0.5" />
-      </svg>
-    );
-  }
-  if (category === 'action') {
-    return (
-      <svg viewBox="0 0 64 64" fill="none" className={className}>
-        <circle cx="32" cy="16" r="8" fill="currentColor" opacity="0.8" />
-        <path d="M20 32l12-8 12 8v16H20V32z" fill="currentColor" opacity="0.7" />
-        <path d="M26 48v-10h12v10" fill="currentColor" opacity="0.5" />
-        <path d="M14 40l6-12M50 40l-6-12" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
-      </svg>
-    );
-  }
-  if (category === 'place') {
-    return (
-      <svg viewBox="0 0 64 64" fill="none" className={className}>
-        <path d="M32 8L8 28h6v24h36V28h6L32 8z" fill="currentColor" opacity="0.7" />
-        <rect x="24" y="38" width="16" height="14" rx="2" fill="white" opacity="0.6" />
-      </svg>
-    );
-  }
-  // default / emotion
-  return (
-    <svg viewBox="0 0 64 64" fill="none" className={className}>
-      <circle cx="32" cy="32" r="22" fill="currentColor" opacity="0.7" />
-      <circle cx="24" cy="26" r="3" fill="white" />
-      <circle cx="40" cy="26" r="3" fill="white" />
-      <path d="M22 40 Q32 50 42 40" stroke="white" strokeWidth="3" strokeLinecap="round" fill="none" />
-    </svg>
-  );
+/**
+ * Simple SVG placeholder illustrations — one per category.
+ * Clean lines, educational flashcard style.
+ */
+const PersonIcon = ({ className }: { className: string }) => (
+  <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
+    {/* Head */}
+    <circle cx="32" cy="18" r="11" fill="#93C5FD" stroke="#3B82F6" strokeWidth="2" />
+    {/* Eyes */}
+    <circle cx="27.5" cy="17" r="2" fill="#1D4ED8" />
+    <circle cx="36.5" cy="17" r="2" fill="#1D4ED8" />
+    {/* Smile */}
+    <path d="M27 22 Q32 27 37 22" stroke="#1D4ED8" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    {/* Body / shoulders */}
+    <path d="M14 56 C14 42 18 36 32 36 C46 36 50 42 50 56" fill="#BFDBFE" stroke="#3B82F6" strokeWidth="2" />
+    {/* Neck */}
+    <rect x="28" y="28" width="8" height="9" rx="3" fill="#93C5FD" />
+  </svg>
+);
+
+const ObjectIcon = ({ className }: { className: string }) => (
+  <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
+    {/* Cup / mug shape */}
+    <rect x="14" y="22" width="30" height="28" rx="5" fill="#A7F3D0" stroke="#10B981" strokeWidth="2" />
+    {/* Handle */}
+    <path d="M44 30 Q56 30 56 38 Q56 46 44 46" stroke="#10B981" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+    {/* Steam lines */}
+    <path d="M22 17 Q24 12 22 8" stroke="#34D399" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <path d="M30 15 Q32 10 30 6" stroke="#34D399" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <path d="M38 17 Q40 12 38 8" stroke="#34D399" strokeWidth="2" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+const ActionIcon = ({ className }: { className: string }) => (
+  <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
+    {/* Running figure */}
+    {/* Head */}
+    <circle cx="38" cy="12" r="7" fill="#FED7AA" stroke="#F97316" strokeWidth="1.8" />
+    {/* Body */}
+    <path d="M38 19 L34 34" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+    {/* Left arm (back) */}
+    <path d="M36 24 L24 20" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+    {/* Right arm (forward) */}
+    <path d="M36 24 L44 18" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" />
+    {/* Left leg (forward) */}
+    <path d="M34 34 L22 44 L20 54" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Right leg (back) */}
+    <path d="M34 34 L42 44 L46 54" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    {/* Motion lines */}
+    <path d="M14 26 L8 26" stroke="#FED7AA" strokeWidth="2" strokeLinecap="round" />
+    <path d="M16 32 L10 32" stroke="#FED7AA" strokeWidth="2" strokeLinecap="round" />
+    <path d="M18 38 L12 38" stroke="#FED7AA" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+const EmotionIcon = ({ className }: { className: string }) => (
+  <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
+    <circle cx="32" cy="32" r="26" fill="#FEF08A" stroke="#EAB308" strokeWidth="2" />
+    {/* Eyes */}
+    <ellipse cx="23" cy="26" rx="4" ry="3.5" fill="#1F2937" />
+    <ellipse cx="41" cy="26" rx="4" ry="3.5" fill="#1F2937" />
+    {/* Smile */}
+    <path d="M20 40 Q32 52 44 40" stroke="#1F2937" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+    {/* Cheeks */}
+    <circle cx="17" cy="37" r="5" fill="#FCA5A5" opacity="0.55" />
+    <circle cx="47" cy="37" r="5" fill="#FCA5A5" opacity="0.55" />
+  </svg>
+);
+
+const PlaceIcon = ({ className }: { className: string }) => (
+  <svg viewBox="0 0 64 64" fill="none" className={className} aria-hidden>
+    {/* House roof */}
+    <path d="M32 6 L6 30 H12 V56 H52 V30 H58 Z" fill="#DDD6FE" stroke="#7C3AED" strokeWidth="2" strokeLinejoin="round" />
+    {/* Door */}
+    <rect x="24" y="38" width="16" height="18" rx="3" fill="#7C3AED" opacity="0.7" />
+    {/* Window left */}
+    <rect x="13" y="32" width="10" height="10" rx="2" fill="white" stroke="#7C3AED" strokeWidth="1.5" />
+    {/* Window right */}
+    <rect x="41" y="32" width="10" height="10" rx="2" fill="white" stroke="#7C3AED" strokeWidth="1.5" />
+  </svg>
+);
+
+const ICON_MAP: Record<string, React.ComponentType<{ className: string }>> = {
+  person:  PersonIcon,
+  object:  ObjectIcon,
+  action:  ActionIcon,
+  emotion: EmotionIcon,
+  place:   PlaceIcon,
 };
 
 export const FlashCard = ({
@@ -123,12 +169,13 @@ export const FlashCard = ({
   onClick,
   selected,
 }: FlashCardProps) => {
-  const cfg = SIZE_CONFIG[size];
+  const cfg         = SIZE_CONFIG[size as keyof typeof SIZE_CONFIG] ?? SIZE_CONFIG.md;
   const borderColor = CATEGORY_BORDER[category] ?? 'border-slate-300';
-  const iconBg = CATEGORY_ICON_BG[category] ?? 'bg-slate-100 text-slate-500';
-  const labelColor = CATEGORY_LABEL_COLOR[category] ?? 'text-slate-700';
-
+  const iconBg      = CATEGORY_ICON_BG[category] ?? 'bg-slate-50 text-slate-400';
+  const labelColor  = CATEGORY_LABEL_COLOR[category] ?? 'text-slate-600';
   const isInteractive = !!onClick;
+
+  const IconComponent = ICON_MAP[category] ?? ObjectIcon;
 
   return (
     <button
@@ -151,8 +198,15 @@ export const FlashCard = ({
         size === 'lg' ? 'drop-shadow-xl' : 'shadow-md',
       ].join(' ')}
     >
-      {/* Image area */}
-      <div className={`flex w-full items-center justify-center ${cfg.image} overflow-hidden rounded-xl bg-amber-50`}>
+      {/* Image / illustration area */}
+      <div
+        className={[
+          'flex w-full items-center justify-center overflow-hidden',
+          cfg.image,
+          cfg.imgRounded,
+          'bg-amber-50',
+        ].join(' ')}
+      >
         {imageUrl ? (
           <img
             src={imageUrl}
@@ -161,16 +215,16 @@ export const FlashCard = ({
           />
         ) : (
           <div className={`flex items-center justify-center rounded-full ${iconBg} ${cfg.icon}`}>
-            <CategoryIcon category={category} className="h-full w-full p-2" />
+            <IconComponent className="h-full w-full p-2" />
           </div>
         )}
       </div>
 
-      {/* Label */}
+      {/* Label area */}
       <div className="mt-2 w-full text-center">
         <p className={`font-bold leading-tight ${cfg.label} text-slate-800`}>{label}</p>
         {labelSecondary && (
-          <p className={`mt-0.5 ${cfg.sub} ${labelColor} font-medium`}>{labelSecondary}</p>
+          <p className={`mt-0.5 font-medium ${cfg.sub} ${labelColor}`}>{labelSecondary}</p>
         )}
       </div>
     </button>

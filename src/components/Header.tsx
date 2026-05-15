@@ -37,6 +37,9 @@ export const Header = ({ locale, dictionary }: HeaderProps) => {
           <Link className="hover:text-emerald-200 transition-colors" href="/specialist">
             {dictionary["nav.specialist"]}
           </Link>
+          <Link className="hover:text-emerald-200 transition-colors" href="/emotions">
+            {dictionary["nav.emotions"] ?? "Эмоции"}
+          </Link>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher initialLocale={locale} />

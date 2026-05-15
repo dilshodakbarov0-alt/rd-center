@@ -197,7 +197,6 @@ export default function SessionRunnerPage() {
           <FlashCard
             label={currentCard.label}
             labelSecondary={currentCard.labelSecondary}
-            colorIndex={currentCard.colorIndex}
             size="lg"
             selected={selectedCard === currentCard.id}
             onClick={() => setSelectedCard(currentCard.id)}
@@ -205,7 +204,6 @@ export default function SessionRunnerPage() {
           <FlashCard
             label={distractorCard.label}
             labelSecondary={distractorCard.labelSecondary}
-            colorIndex={distractorCard.colorIndex}
             size="lg"
             selected={selectedCard === distractorCard.id}
             onClick={() => setSelectedCard(distractorCard.id)}

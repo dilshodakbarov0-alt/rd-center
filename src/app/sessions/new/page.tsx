@@ -155,7 +155,7 @@ export default function NewSessionPage() {
                 key={card.id}
                 label={card.label}
                 labelSecondary={card.labelSecondary}
-                colorIndex={card.colorIndex}
+
                 size="sm"
                 selected={selectedCards.includes(card.id)}
                 onClick={() => toggleCard(card.id)}

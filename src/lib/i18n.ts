@@ -1,96 +1,106 @@
-import { supabaseServer } from "@/lib/supabase/server";
-
 export type Locale = "ru" | "uz";
 
 const fallbackDictionary: Record<Locale, Record<string, string>> = {
   ru: {
-    "app.name": "R&D Center",
-    "nav.dashboard": "Панель",
-    "nav.components": "Компоненты",
-    "nav.prices": "Цены",
-    "nav.templates": "Шаблоны",
-    "nav.settings": "Настройки",
-    "nav.login": "Вход",
-    "dashboard.title": "Проекты",
-    "dashboard.filters": "Фильтры",
-    "project.overview": "Обзор",
-    "project.targets": "Цели и ограничения",
-    "project.recipe": "Рецептура",
-    "project.variants": "Варианты",
-    "project.doe": "DOE / Лаб",
-    "project.qc": "План контроля качества",
-    "project.sop": "SOP",
-    "project.economics": "Экономика",
-    "project.documents": "Документы",
-    "project.images": "Изображения",
-    "actions.generate": "Сгенерировать",
-    "actions.validate": "Проверить Gemini",
-    "login.title": "Вход в систему",
-    "settings.title": "Настройки",
-    "components.title": "Библиотека компонентов",
-    "prices.title": "Региональные цены",
-    "templates.title": "Шаблоны документов",
+    "app.name": "Bolajon Rivoj",
+    "app.subtitle": "Адаптивная ИИ-платформа",
+    "nav.dashboard": "Главная",
+    "nav.cards": "Карточки",
+    "nav.sessions": "Занятия",
+    "nav.progress": "Прогресс",
+    "nav.specialist": "Специалист",
+    "nav.child_mode": "Режим ребёнка",
+    "dashboard.title": "Привет, Малика!",
+    "dashboard.subtitle": "Сегодня у вас 2 задания",
+    "dashboard.today_plan": "План на сегодня",
+    "dashboard.quick_stats": "Быстрая статистика",
+    "children.add": "Добавить ребёнка",
+    "children.speech_level": "Уровень речи",
+    "cards.title": "Карточки",
+    "cards.upload_photo": "Загрузить фото",
+    "cards.confirm": "Подтвердить",
+    "cards.ai_processing": "ИИ обрабатывает фото...",
+    "session.start": "Начать занятие",
+    "session.exercise_type": "Тип упражнения",
+    "session.result.independent": "Самостоятельно",
+    "session.result.prompted": "С подсказкой",
+    "session.result.error": "Ошибка",
+    "session.result.refusal": "Отказ",
+    "session.result.no_response": "Нет реакции",
+    "session.complete": "Завершить",
+    "progress.title": "Прогресс",
+    "progress.sessions_done": "Занятий проведено",
+    "progress.independent_rate": "Самостоятельность",
+    "progress.cards_mastered": "Карточек освоено",
+    "specialist.title": "Кабинет специалиста",
+    "specialist.skill_map": "Карта навыков",
+    "child_mode.title": "Давай учиться!",
+    "questionnaire.title": "Анкета ребёнка",
+    "common.yes": "Да",
+    "common.sometimes": "Иногда",
+    "common.no": "Нет",
+    "common.unknown": "Не знаю",
+    "common.save": "Сохранить",
+    "common.next": "Далее",
+    "common.back": "Назад",
+    "common.loading": "Загрузка...",
+    "common.confirm": "Подтвердить",
+    "common.skip": "Пропустить",
     "language.ru": "Русский",
     "language.uz": "Ўзбекча",
-    "warnings.eps": "EPS запрещён политикой проекта",
   },
   uz: {
-    "app.name": "R&D Center",
-    "nav.dashboard": "Boshqaruv",
-    "nav.components": "Komponentlar",
-    "nav.prices": "Narxlar",
-    "nav.templates": "Shablonlar",
-    "nav.settings": "Sozlamalar",
-    "nav.login": "Kirish",
-    "dashboard.title": "Loyihalar",
-    "dashboard.filters": "Filtrlar",
-    "project.overview": "Umumiy",
-    "project.targets": "Maqsadlar va cheklovlar",
-    "project.recipe": "Retsept",
-    "project.variants": "Variantlar",
-    "project.doe": "DOE / Laboratoriya",
-    "project.qc": "Sifat nazorati reja",
-    "project.sop": "SOP",
-    "project.economics": "Iqtisodiyot",
-    "project.documents": "Hujjatlar",
-    "project.images": "Tasvirlar",
-    "actions.generate": "Yaratish",
-    "actions.validate": "Gemini tekshiruvi",
-    "login.title": "Tizimga kirish",
-    "settings.title": "Sozlamalar",
-    "components.title": "Komponentlar kutubxonasi",
-    "prices.title": "Hududiy narxlar",
-    "templates.title": "Hujjat shablonlari",
+    "app.name": "Bolajon Rivoj",
+    "app.subtitle": "Adaptiv AI platformasi",
+    "nav.dashboard": "Bosh sahifa",
+    "nav.cards": "Kartochkalar",
+    "nav.sessions": "Mashg'ulotlar",
+    "nav.progress": "Rivojlanish",
+    "nav.specialist": "Mutaxassis",
+    "nav.child_mode": "Bola rejimi",
+    "dashboard.title": "Salom, Malika!",
+    "dashboard.subtitle": "Bugun 2 ta vazifangiz bor",
+    "dashboard.today_plan": "Bugungi reja",
+    "dashboard.quick_stats": "Tezkor statistika",
+    "children.add": "Bola qo'shish",
+    "children.speech_level": "Nutq darajasi",
+    "cards.title": "Kartochkalar",
+    "cards.upload_photo": "Rasm yuklash",
+    "cards.confirm": "Tasdiqlash",
+    "cards.ai_processing": "AI rasm tahlil qilmoqda...",
+    "session.start": "Mashg'ulot boshlash",
+    "session.exercise_type": "Mashq turi",
+    "session.result.independent": "Mustaqil",
+    "session.result.prompted": "Yordam bilan",
+    "session.result.error": "Xato",
+    "session.result.refusal": "Rad etish",
+    "session.result.no_response": "Javob yo'q",
+    "session.complete": "Tugatish",
+    "progress.title": "Rivojlanish",
+    "progress.sessions_done": "O'tkazilgan mashg'ulotlar",
+    "progress.independent_rate": "Mustaqillik",
+    "progress.cards_mastered": "O'rganilgan kartochkalar",
+    "specialist.title": "Mutaxassis kabineti",
+    "specialist.skill_map": "Ko'nikmalar xaritasi",
+    "child_mode.title": "Keling o'rganamiz!",
+    "questionnaire.title": "Bola so'rovnomasi",
+    "common.yes": "Ha",
+    "common.sometimes": "Ba'zan",
+    "common.no": "Yo'q",
+    "common.unknown": "Bilmayman",
+    "common.save": "Saqlash",
+    "common.next": "Keyingi",
+    "common.back": "Orqaga",
+    "common.loading": "Yuklanmoqda...",
+    "common.confirm": "Tasdiqlash",
+    "common.skip": "O'tkazib yuborish",
     "language.ru": "Русский",
     "language.uz": "Ўзбекча",
-    "warnings.eps": "EPS loyihada taqiqlangan",
   },
 };
 
-export const getTranslations = async (locale: Locale) => {
-  const base = fallbackDictionary[locale] ?? fallbackDictionary.ru;
-  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
-    return base;
-  }
-
-  const { data } = await supabaseServer
-    .from("translations")
-    .select("key,value")
-    .eq("locale", locale);
-
-  if (!data) {
-    return base;
-  }
-
-  const dbDictionary = data.reduce<Record<string, string>>((acc, row) => {
-    acc[row.key] = row.value;
-    return acc;
-  }, {});
-
-  return {
-    ...base,
-    ...dbDictionary,
-  };
+export const getTranslations = async (locale: Locale): Promise<Record<string, string>> => {
+  return fallbackDictionary[locale] ?? fallbackDictionary.ru;
 };
 
 export const getTranslationValue = (dictionary: Record<string, string>, key: string) => {

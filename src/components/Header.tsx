@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Brain } from "lucide-react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { Locale } from "@/lib/i18n";
 
@@ -11,39 +12,39 @@ export const Header = ({ locale, dictionary }: HeaderProps) => {
   return (
     <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-lg font-bold text-emerald-200">
-            R&D
+        <Link href="/dashboard" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400">
+            <Brain size={22} />
           </div>
           <div>
-            <p className="text-sm text-slate-400">{dictionary["app.name"]}</p>
-            <p className="text-xs text-slate-500">Construction Materials Lab</p>
+            <p className="text-sm font-semibold text-emerald-200">{dictionary["app.name"]}</p>
+            <p className="text-xs text-slate-500">{dictionary["app.subtitle"]}</p>
           </div>
-        </div>
-        <nav className="flex items-center gap-4 text-sm text-slate-200">
-          <Link className="hover:text-emerald-200" href="/dashboard">
+        </Link>
+        <nav className="flex items-center gap-4 text-sm text-slate-300">
+          <Link className="hover:text-emerald-200 transition-colors" href="/dashboard">
             {dictionary["nav.dashboard"]}
           </Link>
-          <Link className="hover:text-emerald-200" href="/components">
-            {dictionary["nav.components"]}
+          <Link className="hover:text-emerald-200 transition-colors" href="/cards">
+            {dictionary["nav.cards"]}
           </Link>
-          <Link className="hover:text-emerald-200" href="/prices">
-            {dictionary["nav.prices"]}
+          <Link className="hover:text-emerald-200 transition-colors" href="/sessions">
+            {dictionary["nav.sessions"]}
           </Link>
-          <Link className="hover:text-emerald-200" href="/templates">
-            {dictionary["nav.templates"]}
+          <Link className="hover:text-emerald-200 transition-colors" href="/progress">
+            {dictionary["nav.progress"]}
           </Link>
-          <Link className="hover:text-emerald-200" href="/settings">
-            {dictionary["nav.settings"]}
+          <Link className="hover:text-emerald-200 transition-colors" href="/specialist">
+            {dictionary["nav.specialist"]}
           </Link>
         </nav>
         <div className="flex items-center gap-3">
           <LanguageSwitcher initialLocale={locale} />
           <Link
-            href="/login"
-            className="rounded-lg border border-emerald-500/40 px-3 py-2 text-xs font-semibold text-emerald-200"
+            href="/child-mode"
+            className="rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-200 hover:bg-emerald-500/20 transition-colors"
           >
-            {dictionary["nav.login"]}
+            {dictionary["nav.child_mode"]}
           </Link>
         </div>
       </div>

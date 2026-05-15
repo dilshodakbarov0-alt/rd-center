@@ -5,8 +5,8 @@ import { Header } from "@/components/Header";
 import { getTranslations, type Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "R&D Center",
-  description: "R&D Center for construction materials.",
+  title: "Bolajon Rivoj — Nutq va Rivoj",
+  description: "Адаптивная ИИ-платформа для детей с РАС, ЗПРР и ЗРР. Речевые упражнения, карточки и прогресс-трекинг.",
 };
 
 const getLocale = (): Locale => {

@@ -1,7 +1,4 @@
-import type { GameType, TrialOutcome, SpeechLevel, CardType, AILessonAudience, Language } from './types';
-
-// Re-export to avoid unused import warnings
-export type { TrialOutcome };
+import type { GameType, SpeechLevel, CardType, AILessonAudience, Language } from './types';
 
 // ─── INPUTS ─────────────────────────────────────────────────────────────────
 

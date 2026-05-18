@@ -27,12 +27,55 @@ const AUDIT_LOG = [
   { user: 'methodist@example.com', action: 'approve_rule', resource: 'method_rules', time: '3 ч назад' },
 ];
 
+const QUICK_LINKS = [
+  {
+    href: '/admin/orchestrator',
+    label: 'AI Orchestrator Console',
+    description: 'Тестирование оркестратора — все типы запросов, цепочка агентов, адаптивный движок',
+    icon: '🧠',
+    badge: 'v2.0',
+    badgeColor: 'bg-violet-800/60 text-violet-300',
+  },
+  {
+    href: '/admin/ai-gateway',
+    label: 'AI Gateway',
+    description: 'Управление провайдерами и запросами',
+    icon: '⚡',
+    badge: null,
+    badgeColor: '',
+  },
+];
+
 export default function AdminPage() {
   return (
     <section className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-white">Панель администратора</h1>
         <p className="mt-1 text-slate-400">Bolajon AI Rivoj · 15 мая 2026</p>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {QUICK_LINKS.map(link => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="card flex items-start gap-3 transition-colors hover:border-slate-600 hover:bg-slate-800/60"
+          >
+            <span className="text-2xl mt-0.5">{link.icon}</span>
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-sm font-semibold text-white">{link.label}</p>
+                {link.badge && (
+                  <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${link.badgeColor}`}>
+                    {link.badge}
+                  </span>
+                )}
+              </div>
+              <p className="mt-0.5 text-xs text-slate-400">{link.description}</p>
+            </div>
+            <span className="text-slate-600 text-sm">→</span>
+          </a>
+        ))}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
